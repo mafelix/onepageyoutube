@@ -2,3 +2,20 @@
   text-align:center;
   position:relative;
 }
+
+.music-container{
+  text-align:center;
+}
+
+.input-field{
+  float:right;
+  position:relative;
+  /*padding-right:400px;*/
+  /*background-color:#ffebee;*/
+  text-align:center;
+}
+
+.input-field button{
+  color:red;
+  display:none;
+}

@@ -6,6 +6,12 @@
       <li><a href="playlist">Playlist</a></li>
       <ll><a href="logout">Logout</a></ll>
     </ul>
+    <div class="input-field center-align">
+      <form id="ytapi">
+        <input type = 'text' id = 'search' name = 'searchyoutube' placeholder= 'Enter youtube search'></br>
+        <button id='searchYoutube' type = 'submit'>Search</button>
+      </form>
+    </div>
   </div>
 </nav>
 
@@ -15,21 +21,29 @@
 
 <!-- Modal Trigger -->
 <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
+<div class="playlist">
+  <div>
+    <table>
+      <tr>Title</tr>
+      <tr>Duration</tr>
 
-
-<p>Search youtube</p>
-<div class="input-field">
-  <form id="ytapi">
-    <input type = 'text' id = 'search' name = 'searchyoutube' placeholder= 'Enter youtube search'></br>
-    <button id='searchYoutube' type = 'submit'>Search</button>
-  </form>
-</div>
-<div class="container">
-  <div id = 'results'>
-
+      <tbody>
+      <tr>
+        <td>Never</td>
+        <td>1:23</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
+<div class="music-container">
+  <div class="container">
+    <div id = 'results'>
+
+    </div>
+  </div>
+</div>
 
 
 <!-- Modal Structure -->
