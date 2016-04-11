@@ -15,22 +15,13 @@ $(function() {
        request.execute(function(response) {
           // console.log(response);
           var results = response.result;
-          console.log(results);
+          // console.log(results);
           $("#results").html("");
           $.each(results.items, function(index, item){
-            // var iframe = '<iframe class="video w100" width="640" height="360" src="//www.youtube.com/embed/" + item.id.videoId + frameborder="0" allowfullscreen></iframe>';
-            // var iframe = document.write("<iframe class=\"video w100\" width=\"640\" height=\"360\" src=\"//www.youtube.com/embed/" +item.id.videoId + "frameborder=\"0\" allowfullscreen</iframe>");
             var title = $('<h3>').text(item.snippet.title);
-            // var p = $('<p>').text(item.id.videoId);
-            // console.log(item.id.videoId);
-            // var iframe = document.write('<iframe class ="video w100" width="640" height="360" src="//www.youtube.com/embed/'+ item.id.videoId + '" frameborder="0" allowfullscreen</iframe> "<br>"')
             var iframe = document.createElement('iframe')
             iframe.setAttribute("src", '//www.youtube.com/embed/' + item.id.videoId);
             
-            // var iframe = ('<iframe class='video w100' width='640' height='360' src="//www.youtube.com/embed/"' + item.id.videoId + 'frameborder="0" allowfullscreen></iframe>');
-
-            // var total = title.append(p);
-            // $('#results').html("<iframe class="video w100" width="640" height="360" src=\"//www.youtube.com/embed/" +item.id.videoId + "frameborder="0" allowfullscreen</iframe>");
             $('#results').append(iframe);
 
           })
