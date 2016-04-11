@@ -2,7 +2,7 @@
   <div class="nav-wrapper">
     <a href="#" class="brand-logo">OPM</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="sign">Sign in</a></li>
+      <li id="signin"><a class="modal-trigger" href="#modal1">Sign in</a></li>
       <li><a href="playlist">Playlist</a></li>
       <ll><a href="logout">Logout</a></ll>
     </ul>
@@ -13,7 +13,20 @@
   <h1>One Page Music</h1>
 </div>
 
+  <!-- Modal Trigger -->
+  <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
 
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of textaowefoiawjfioajweofijawoeijfoa;wefjaojfeiauhoaierufhaoie</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+          
 
 <p>Search youtube</p>
 <div class="input-field">
@@ -22,9 +35,10 @@
     <button id='searchYoutube' type = 'submit'>Search</button>
   </form>
 </div>
-<div class="container">
+<div class="container valign-wrapper">
   <div id = 'results'>
 
   </div>
 </div>
+
 

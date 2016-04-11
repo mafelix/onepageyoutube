@@ -1,16 +1,19 @@
 // function for buttons to show and click
 $(function() {
-    $("form").on("submit", function(e) {
-       e.preventDefault();
+
+  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+  $('.modal-trigger').leanModal();
+  $("form").on("submit", function(e) {
+   e.preventDefault();
        // prepare the request
        var request = gapi.client.youtube.search.list({
-            part: "snippet",
-            type: "video",
-            q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
-            maxResults: 3,
-            order: "viewCount",
-            publishedAfter: "2015-01-01T00:00:00Z"
-       });
+        part: "snippet",
+        type: "video",
+        q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
+        maxResults: 3,
+        order: "viewCount",
+        publishedAfter: "2015-01-01T00:00:00Z"
+      });
        // execute the request
        request.execute(function(response) {
           // console.log(response);
@@ -18,35 +21,39 @@ $(function() {
           // console.log(results);
           $("#results").html("");
           $.each(results.items, function(index, item){
-            var title = $('<h3>').text(item.snippet.title);
+            var title = $('<h5>').text(item.snippet.title);
             var iframe = document.createElement('iframe')
             iframe.setAttribute("src", '//www.youtube.com/embed/' + item.id.videoId);
+            iframe.setAttribute("allowFullScreen", "")
             
-            $('#results').append(iframe);
+            $('#results').append(iframe).append(title);
 
           })
           // $.each(results.items, function(index, item) {
             // $.get("tpl/item.html", function(data) {
                 // $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
-            });
-          });
-          resetVideoHeight();
-       });
+              });
+     });
+  resetVideoHeight();
+});
     // });
 
     $(window).on("resize", resetVideoHeight);
 // });
 
 function resetVideoHeight() {
-    $(".video").css("height", $("#results").width() * 9/16);
+  $(".video").css("height", $("#results").width() * 9/16);
+}
+function init() {
+  gapi.client.setApiKey("AIzaSyCckPqTgpsduKrG1kNmrYlif3FBJQpcxEc");
+  gapi.client.load("youtube", "v3", function() {
+        // yt api is ready
+      });
 }
 
-  function init() {
-    gapi.client.setApiKey("AIzaSyCckPqTgpsduKrG1kNmrYlif3FBJQpcxEc");
-    gapi.client.load("youtube", "v3", function() {
-        // yt api is ready
-  });
-}
+
+
+
 
 
 // $(function(){
