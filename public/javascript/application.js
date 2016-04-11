@@ -1,9 +1,10 @@
 // function for buttons to show and click
 $(function() {
-
+  // for modal sign in
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
   $('.modal-trigger').leanModal();
-  $("form").on("submit", function(e) {
+
+  $(".input-field button").on("click", function(e) {
    e.preventDefault();
        // prepare the request
        var request = gapi.client.youtube.search.list({
@@ -25,7 +26,8 @@ $(function() {
             var iframe = document.createElement('iframe')
             iframe.setAttribute("src", '//www.youtube.com/embed/' + item.id.videoId);
             iframe.setAttribute("allowFullScreen", "")
-            
+            iframe.setAttribute("frameborder", "0")
+
             $('#results').append(iframe).append(title);
 
           })

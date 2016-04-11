@@ -13,32 +13,37 @@
   <h1>One Page Music</h1>
 </div>
 
-  <!-- Modal Trigger -->
-  <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
+<!-- Modal Trigger -->
+<!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
 
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of textaowefoiawjfioajweofijawoeijfoa;wefjaojfeiauhoaierufhaoie</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
-          
 
 <p>Search youtube</p>
 <div class="input-field">
-  <form>
+  <form id="ytapi">
     <input type = 'text' id = 'search' name = 'searchyoutube' placeholder= 'Enter youtube search'></br>
     <button id='searchYoutube' type = 'submit'>Search</button>
   </form>
 </div>
-<div class="container valign-wrapper">
+<div class="container">
   <div id = 'results'>
 
   </div>
 </div>
 
 
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal" method="post">
+  <div class="modal-content">
+    <h4>Sign in</h4>
+    <form>
+      <input type="text" id="signin-field" name="signin-field" placeholder="Username"></br>
+      <input type="password" id="signin-pw" name="signin-pw" placeholder="Password"
+    </form>
+    <button id="submitlogin" type="submit">Submit</button>
+    <!-- <p>A bunch of textaowefoiawjfioajweofijawoeijfoa;wefjaojfeiauhoaierufhaoie</p -->
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>
