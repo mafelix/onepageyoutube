@@ -23,14 +23,15 @@ $(function() {
           $("#results").html("");
           $.each(results.items, function(index, item){
             var title = $('<h5>').text(item.snippet.title);
-            var iframe = document.createElement('iframe')
+            var iframe = document.createElement('iframe');
+            var div = $('<div>').addClass('video-container')
             iframe.setAttribute("src", '//www.youtube.com/embed/' + item.id.videoId);
             iframe.setAttribute("allowFullScreen", "")
             iframe.setAttribute("frameborder", "0")
-
-            $('#results').append(iframe).append(title);
-
-          })
+            // div.append(title)
+            div.append(iframe)
+            $('#results').append(div).append(title);
+          });
           // $.each(results.items, function(index, item) {
             // $.get("tpl/item.html", function(data) {
                 // $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
