@@ -4,10 +4,6 @@ get '/' do
   erb :index
 end
 
-# get '/signin' do
-  
-# end
-
-get '/musics' do
+post '/signin' do
 
 end
