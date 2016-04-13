@@ -4,39 +4,72 @@ $(function() {
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
   $('.modal-trigger').leanModal();
 
-  $(".input-field button").on("click", function(e) {
-   e.preventDefault();
-       // prepare the request
-       var request = gapi.client.youtube.search.list({
-        part: "snippet",
-        type: "video",
-        q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
-        maxResults: 3,
-        order: "viewCount",
-        publishedAfter: "2015-01-01T00:00:00Z"
-      });
-       // execute the request
-       request.execute(function(response) {
-          // console.log(response);
-          var results = response.result;
-          // console.log(results);
-          $("#results").html("");
-          $.each(results.items, function(index, item){
-            var title = $('<h5>').text(item.snippet.title);
-            var iframe = document.createElement('iframe');
-            var div = $('<div>').addClass('video-container')
-            iframe.setAttribute("src", '//www.youtube.com/embed/' + item.id.videoId);
-            iframe.setAttribute("allowFullScreen", "")
-            iframe.setAttribute("frameborder", "0")
-            // div.append(title)
-            div.append(iframe)
-            $('#results').append(div).append(title);
-          });
-          // $.each(results.items, function(index, item) {
-            // $.get("tpl/item.html", function(data) {
-                // $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
-              });
-     });
+  // playlist query
+  $('.input-field button').on('click', function(e){
+    e.preventDefault();
+    var request = gapi.client.youtube.search.list({
+      part: "snippet",
+      type:"playlist",
+      q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
+      maxResults: 1,
+      order: "viewCount",
+      publishedAfter: "2015-01-01T00:00:00Z"
+    });
+      request.execute(function(response){
+        var results = response.result;
+        console.log(results);
+        $('#playlist').html("");
+        $.each(results.items, function(index, item){
+         var title = $('<h5>').text(item.snippet.title);
+         var li = $('<li>').addClass('video-container');
+         var iframe = document.createElement('iframe');
+         iframe.setAttribute("src", '//www.youtube.com/embed/videoseries?list=' + item.id.playlistId);
+         iframe.setAttribute("allowFullScreen", "");
+         iframe.setAttribute("frameborder", "0");
+         li.append(iframe);
+         $('#playlist').append(li);
+
+        })
+      })
+   })
+
+  // $(".input-field button").on("click", function(e) {
+  //  e.preventDefault();
+  //      // prepare the request
+  //      var request = gapi.client.youtube.search.list({
+  //       part: "snippet",
+  //       type: "video",
+  //       q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
+  //       maxResults: 1,
+  //       order: "viewCount",
+  //       publishedAfter: "2015-01-01T00:00:00Z"
+  //     });
+  //      // execute the request
+  //      request.execute(function(response) {
+  //         // console.log(response);
+  //         var results = response.result;
+  //         // console.log(results);
+  //         $("#results").html("");
+  //         $.each(results.items, function(index, item){
+  //           var title = $('<h5>').text(item.snippet.title);
+  //           var iframe = document.createElement('iframe');
+  //           // var div = $('<div>').addClass('videos')
+  //           iframe.setAttribute("src", '//www.youtube.com/embed/' + item.id.videoId);
+  //           iframe.setAttribute("allowFullScreen", "");
+  //           iframe.setAttribute("frameborder", "0");
+  //           // div.append(title)
+  //           // div.append(iframe)
+  //           var li = $('<li>').addClass('video-container');
+  //           li.append(iframe)
+  //           // .append(title);;
+  //           $('#results').append(li)
+  //           // .append(title);
+  //         });
+  //         // $.each(results.items, function(index, item) {
+  //           // $.get("tpl/item.html", function(data) {
+  //               // $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
+  //             });
+  //    });
   resetVideoHeight();
 });
     // });
