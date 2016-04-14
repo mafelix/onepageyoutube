@@ -1,6 +1,7 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
+gem 'bcrypt'
 gem 'rake'
 gem 'activesupport'
 
