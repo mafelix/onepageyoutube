@@ -6,10 +6,25 @@ helpers do
   def current_user
     current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
+
+  def check_flash
+    @flash = session[:flash] if session[:flash]
+    session[:flash] = nil
+  end
+end
+
+before do
+  current_user
+  check_flash
 end
 
 get '/' do
   erb :index
+end
+
+get '/logout' do
+  session.clear
+  redirect '/'
 end
 
 post '/signin' do
@@ -17,13 +32,12 @@ post '/signin' do
     username: params[:username],
     password: params[:password]
     )
-  # binding.pry
   if !@user.nil? && @user.password == params[:password]
     session[:user_id] = @user.id
     redirect '/'
   else
     session[:flash] = "Invalid username or password"
-    # redirect '/'
+    redirect '/'
   end
 end
 
@@ -38,6 +52,6 @@ post '/signup' do
     redirect '/'
   else
     session[:flash] = "Account could not be created"
-    # redirect '/'
+    redirect '/'
   end
 end

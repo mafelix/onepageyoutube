@@ -3,6 +3,21 @@ $(function() {
   // for modal sign in
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
   $('.modal-trigger').leanModal();
+  // sidebar menu and options
+  // $(".button-collapse").sideNav();
+  $(".button-collapse").sideNav({
+      menuWidth: 300, // Default is 240
+      edge: 'left', // Choose the horizontal origin
+      closeOnClick: false // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    }
+  );
+  // Show sideNav
+  $('.menu').on('click',function(){
+    $('.button-collapse').sideNav('show');
+  })
+  
+  // Hide sideNav
+  // $('.button-collapse').sideNav('hide');      
 
   // playlist query
   $('.input-field button').on('click', function(e){

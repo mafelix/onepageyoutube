@@ -1,12 +1,36 @@
+
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="center brand-logo">Logo</a>
+    
+    <a class="menu" href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+    <!-- <li class="menu"><a href="#!">Menu</a></li> -->
+    </ul>
+    <ul id="slide-out" class="side-nav">
+      <li><a href="#"><div class="input-field">
+        <form id="ytapi">
+          <input type = 'text' id = 'search' name = 'searchyoutube' placeholder= 'Enter youtube search'></br>
+          <button id='searchYoutube' type = 'submit'>Search</button>
+        </form>
+      </div></a></li>
+      <li><a href="#!">First Sidebar Link</a></li>
+      <li><a href="#!">Second Sidebar Link</a></li>
+      <li><a href="#!">Third Sidebar Link</a></li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
+  </div>
+</nav>
+<!-- 
 <nav>
   <div class="nav-wrapper grey darken-4">
     <a href="#" class="brand-logo">OPM</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li id="signin"><a class="modal-trigger" href="#modal1">Sign in</a></li>
       <li id="signup"><a class="modal-trigger" href="#modal2">Sign up</a></li>
-      <!-- <li><a href=#>Sign up</a></li> -->
+      <li><a href=#>Sign up</a></li>
 
-      <ll><a href=#>Logout</a></ll>
+      <ll><a href='/logout'>Logout</a></ll>
     </ul>
     <div class="input-field center-align">
       <form id="ytapi">
@@ -15,7 +39,7 @@
       </form>
     </div>
   </div>
-</nav>
+</nav> -->
 
 <!-- <div id="title">
   <h1>One Page Music</h1>
@@ -30,26 +54,26 @@
   </div>
 </div>
 <div class="row">
-<!-- <div class="container"> -->
+  <!-- <div class="container"> -->
 
-<div class="col s6 m3 l2 test">
+  <div class="col s6 m3 l2 test">
 
-</div>
-
-<div class="col s6 m9 l10">
-  <div class="music-wrapper">
-    <div id ='results' class="rows">
-      <ul>
-
-      </ul>
-    </div>
-    <div id='playlist' class="rows">
-      <ul>
-
-      </ul>      
-    </div>
   </div>
-<!-- </div> -->
+
+  <!-- <div class="col s6 m9 l10">
+    <div class="music-wrapper">
+      <div id ='results' class="rows">
+        <ul>
+
+        </ul>
+      </div>
+      <div id='playlist' class="rows">
+        <ul>
+
+        </ul>      
+      </div>
+    </div>
+  </div> -->
 </div>
 </div>
 <!-- Modal Structure -->
@@ -63,7 +87,7 @@
     </form>
   </div>
   <!-- <div class="modal-footer"> -->
-    <!-- <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a> -->
+  <!-- <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a> -->
   <!-- </div> -->
 </div>
 
@@ -77,9 +101,9 @@
     </form>
   </div>
   <!-- <div class="modal-footer"> -->
-    <!-- <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a> -->
-  </div>
+  <!-- <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a> -->
+</div>
 </div>
 
-
+<%=erb :show_flash%>
 
